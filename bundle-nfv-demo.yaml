@@ -1,0 +1,141 @@
+nfv-demo:
+  services:
+    "clearwater-bono":
+      charm: "local:precise/clearwater-bono"
+      charm_url: "local:precise/clearwater-bono"
+      num_units: 1
+      constraints: "arch=amd64"
+      options:
+        zone: "clearwater.local"
+      expose: true
+      annotations:
+        "gui-x": "400"
+        "gui-y": "900"
+    "clearwater-sprout":
+      charm: "local:precise/clearwater-sprout"
+      charm_url: "local:precise/clearwater-sprout"
+      num_units: 1
+      constraints: "arch=amd64"
+      options:
+        zone: "clearwater.local"
+      annotations:
+        "gui-x": "400"
+        "gui-y": "600"
+    "clearwater-ralf":
+      charm: "local:precise/clearwater-ralf"
+      charm_url: "local:precise/clearwater-ralf"
+      num_units: 1
+      constraints: "arch=amd64"
+      options:
+        zone: "clearwater.local"
+      annotations:
+        "gui-x": "800"
+        "gui-y": "750"
+    "clearwater-homestead":
+      charm: "local:precise/clearwater-homestead"
+      charm_url: "local:precise/clearwater-homestead"
+      num_units: 1
+      constraints: "arch=amd64"
+      options:
+        zone: "clearwater.local"
+      annotations:
+        "gui-x": "200"
+        "gui-y": "300"
+    "clearwater-homer":
+      charm: "local:precise/clearwater-homer"
+      charm_url: "local:precise/clearwater-homer"
+      num_units: 1
+      constraints: "arch=amd64"
+      options:
+        zone: "clearwater.local"
+      annotations:
+        "gui-x": "600"
+        "gui-y": "300"
+    "clearwater-ellis":
+      charm: "local:precise/clearwater-ellis"
+      charm_url: "local:precise/clearwater-ellis"
+      num_units: 1
+      constraints: "arch=amd64"
+      options:
+        base_number: "1234567000"
+        number_count: 1000
+        signup_key: "signup"
+        zone: "clearwater.local"
+      expose: true
+      annotations:
+        "gui-x": "400"
+        "gui-y": "0"
+    dns:
+      charm: "cs:~lazypower/precise/dns"
+      num_units: 1
+      options:
+        domain: "clearwater.local"
+      annotations:
+        "gui-x": "1000"
+        "gui-y": "450"
+    "telscale-load-balancer": 
+      charm: "cs:~thomnico/trusty/telscale-load-balancer"
+      num_units: 1
+      expose: true
+      annotations: 
+        "gui-x": "-200"
+        "gui-y": "300"
+    "telscale-restcomm": 
+      charm: "cs:~thomnico/trusty/telscale-restcomm"
+      num_units: 1
+      expose: true
+      annotations: 
+        "gui-x": "-300"
+        "gui-y": "450"
+    "sipml5": 
+      charm: "cs:~thomnico/trusty/sipml5"
+      num_units: 1
+      expose: true
+      annotations: 
+        "gui-x": "1000"
+        "gui-y": "550"
+    mysql: 
+      charm: "cs:precise/mysql"
+      num_units: 1
+      expose: true
+      annotations: 
+        "gui-x": "-300"
+        "gui-y": "150"
+  relations: 
+    - - "telscale-restcomm:load-balancer"
+      - "telscale-load-balancer:load-balancer"
+    - - "mysql:db"
+      - "telscale-restcomm:database"
+    - - "telscale-restcomm:clearwater-ellis"
+      - "clearwater-ellis:as-catalog"
+    - - "telscale-load-balancer:clearwater-ellis"
+      - "clearwater-ellis:as-catalog"
+    - - "telscale-restcomm:cscf"
+      - "clearwater-sprout:as"
+    - - "clearwater-homestead:programmable-multiple"
+      - "dns:programmable-multiple"
+    - - "clearwater-ralf:programmable-multiple"
+      - "dns:programmable-multiple"
+    - - "clearwater-sprout:programmable-multiple"
+      - "dns:programmable-multiple"
+    - - "clearwater-bono:programmable-multiple"
+      - "dns:programmable-multiple"
+    - - "clearwater-homer:programmable-multiple"
+      - "dns:programmable-multiple"
+    - - "clearwater-ellis:programmable-multiple"
+      - "dns:programmable-multiple"
+    - - "clearwater-bono:cscf"
+      - "clearwater-sprout:pcscf"
+    - - "clearwater-bono:ralf-ctf"
+      - "clearwater-ralf:ralf-cscf"
+    - - "clearwater-sprout:ralf-ctf"
+      - "clearwater-ralf:ralf-cscf"
+    - - "clearwater-homestead:homestead-cscf"
+      - "clearwater-sprout:homestead-hss"
+    - - "clearwater-homer:xdms-user"
+      - "clearwater-sprout:xdms"
+    - - "clearwater-ellis:homestead-prov"
+      - "clearwater-homestead:homestead-prov-user"
+    - - "clearwater-ellis:xdms"
+      - "clearwater-homer:xdms-user"
+  series: trusty

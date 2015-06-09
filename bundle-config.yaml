@@ -1,0 +1,66 @@
+nfv-demo:
+  overrides:
+    zone: "ims.nfv.ovh"
+    domain: "ims.nfv.ovh"
+  services:
+    "clearwater-bono":
+      options:
+        # Deployment-wide options
+        # These options should be set to the same value for all Clearwater charms
+        zone: "ims.clearwater.local"
+        repo: "http://repo.cw-ngv.com/juju-clearwater-1"
+        sas: "0.0.0.0"
+
+        # Bono-specific options
+        # trusted_peers  is a comma-separated whitelist of IP addresses. Peers in this list are allowed to send SIP traffic without registration (e.g. for trunking).
+        trusted_peers: "1.2.3.4,5.6.7.9"
+    "clearwater-sprout":
+      options:
+        # Deployment-wide options
+        # These options should be set to the same value for all Clearwater charms
+        zone: "ims.clearwater.local"
+        repo: "http://repo.cw-ngv.com/juju-clearwater-1"
+        sas: "0.0.0.0"
+
+        # Sprout-specific options
+        # reg_max_expires is the maximum time, in seconds, before a SIP client's registration expires and they have to re-register
+        reg_max_expires: 300
+        # enum is the IP address of an ENUM DNS server, used for translating E.164 numbers like +1-555-123-4567 into SIP URIs. This is optional.
+        enum: "0.0.0.0"
+    "clearwater-ralf":
+      options:
+        # Deployment-wide options
+        # These options should be set to the same value for all Clearwater charms
+        zone: "ims.clearwater.local"
+        repo: "http://repo.cw-ngv.com/juju-clearwater-1"
+        sas: "0.0.0.0"
+    "clearwater-homestead":
+      options:
+        # Deployment-wide options
+        # These options should be set to the same value for all Clearwater charms
+        zone: "ims.clearwater.local"
+        repo: "http://repo.cw-ngv.com/juju-clearwater-1"
+        sas: "0.0.0.0"
+    "clearwater-homer":
+      options:
+        # Deployment-wide options
+        # These options should be set to the same value for all Clearwater charms
+        zone: "ims.clearwater.local"
+        repo: "http://repo.cw-ngv.com/juju-clearwater-1"
+    "clearwater-ellis":
+      options:
+        # Deployment-wide options
+        # These options should be set to the same value for all Clearwater charms
+        zone: "ims.clearwater.local"
+        repo: "http://repo.cw-ngv.com/juju-clearwater-1"
+
+        # Ellis-specific options
+        # Ellis' role is to allocate numbers to users, out of a preconfigured pool. The base_number and number_count settings define that pool - for example, with these values, Ellis could allocate sip:1234567000@ims.clearwater.local to sip:1234567999@ims.clearwater.local.
+        base_number: "1234567000"
+        number_count: 1000
+        # Ellis allows self-sign-up - anyone who has this signup key can create a user account and multiple lines, so it should be kept secure.
+        signup_key: "abracadabra"
+    dns:
+      options:
+        # The dns 'domain' option should match the Clearwater 'zone' option
+        domain: "ims.clearwater.local"

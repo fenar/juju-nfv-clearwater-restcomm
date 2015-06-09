@@ -1,0 +1,59 @@
+#!/bin/bash
+#
+#    integrate with an external zabbix on a machine
+#    Copyright (C) 2014 Canonical Ltd.
+#
+#    Authors: nicolas.thomas@canonical.com
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, version 3 of the License.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+
+set -ex
+
+VM_IP=$1
+
+if [[ -z "$VM_IP" ]] 
+then
+    echo "must give name/ip of the system to configure on"
+    exit 2
+fi
+
+SSH="ssh -o StrictHostKeyChecking=no ubuntu@$VM_IP " 
+
+export JUJU_ENDPOINT=`juju api-endpoints`
+export ADMIN_PASS=`cat ${JUJU_HOME:-~/.juju}/environments/$(juju switch).jenv|grep admin-secret|awk '{print $2;}'`
+
+
+## Connect to zabbix to juju API 
+
+TMP=`mktemp `
+cat > $TMP <<EOF
+juju-api:
+  endpoint: "wss://$JUJU_ENDPOINT"
+  admin-secret: $ADMIN_PASS
+EOF
+#echo 'juju-api:'; echo '  endpoint: "'$JUJU_ENDPOINT'"'; echo '  admin-secret: '$ADMIN_PASS > $TMP
+
+scp -o StrictHostKeyChecking=no $TMP ubuntu@$VM_IP:/tmp/.jujuapi.yaml
+
+$SSH "sudo mv /tmp/.jujuapi.yaml /usr/lib/zabbix/externalscripts/.jujuapi.yaml"
+$SSH "sudo chown zabbix:zabbix /usr/lib/zabbix/externalscripts/.jujuapi.yaml"
+$SSH "sudo chmod 644  /usr/lib/zabbix/externalscripts/.jujuapi.yaml"
+
+##usr/lib/zabbix/externalscripts/.jujuapi.yaml "
+
+juju deploy  cs:~samuel-cozannet/precise/zabbix-agent || echo "already deployed keep going"
+juju set zabbix-agent server-host=$VM_IP
+
+juju add-relation clearwater-ellis zabbix-agent || echo "already related to ellis keep going"
+
+echo "You can now connect Got to th gui and connect clearwater services to zabbix-agent"
+
