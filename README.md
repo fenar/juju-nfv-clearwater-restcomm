@@ -28,9 +28,9 @@ Use clearwater by using the login at:
 
 
 Use restcomm using the login at:
-http://restcomm-IP:8080/restcomm-management
-email: administrator@company.com
-pass: RestComm
+*http://restcomm-IP:8080/restcomm-management
+*email: administrator@company.com
+*pass: RestComm
 
 Show the designer: 
 http://www.restcomm.com/developers/
