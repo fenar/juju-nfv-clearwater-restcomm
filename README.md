@@ -4,7 +4,7 @@
 
 Works on Amazon EC2 and OpenStack 
 
-Once you juju environment is set:
+Once you juju environment is up (suggesting juju-quickstart):
 ./00-prepare.sh
 
 If you have a dns domain of your own you can change the first 2 lines of bundle-nfv-demo.yaml in the override section.
@@ -20,11 +20,11 @@ For the familiar with IMS word here is the ClearWater architecture:
 
 Use clearwater by using the login at:
 
-http://ellis-IP/
-Go to signup page:
-e-mail/name: your choice.
-signup code : signup
-password suggestion: AAbbCCdd
+* http://ellis-IP/
+* Go to signup page:
+* e-mail/name: your choice.
+* signup code : abracadabra
+* password suggestion: AAbbCCdd
 
 
 Use restcomm using the login at:
