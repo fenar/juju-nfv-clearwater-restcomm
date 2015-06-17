@@ -1,0 +1,50 @@
+#!/bin/bash
+#
+#    zabbix install on vm
+#    Copyright (C) 2014 Canonical Ltd.
+#
+#    Authors: nicolas.thomas@canonical.com
+#
+#    This program is free software: you can redistribute it and/or modify
+#    it under the terms of the GNU General Public License as published by
+#    the Free Software Foundation, version 3 of the License.
+#
+#    This program is distributed in the hope that it will be useful,
+#    but WITHOUT ANY WARRANTY; without even the implied warranty of
+#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#    GNU General Public License for more details.
+#
+#    You should have received a copy of the GNU General Public License
+
+set -e
+
+VM_IP=$1
+
+if [[ -z "$VM_IP" ]] 
+then
+    echo "must give name/ip of the system to install on"
+    exit 2
+fi	
+ssh -o StrictHostKeyChecking=no ubuntu@$VM_IP sudo apt-get update
+
+#SSH into the instance and install git
+ssh -o StrictHostKeyChecking=no ubuntu@$VM_IP sudo apt-get -y install git python-jujuclient
+
+#Get Zabbix code from SamNCo 
+ssh -o StrictHostKeyChecking=no ubuntu@$VM_IP "[[ -d zabbix/ ]] || git clone https://github.com/SaMnCo/ob-zabbix.git zabbix"
+
+ssh -o StrictHostKeyChecking=no ubuntu@$VM_IP "cd zabbix ; chmod +x install-zabbix-server.sh; sudo ./install-zabbix-server.sh"
+
+ssh -o StrictHostKeyChecking=no ubuntu@$VM_IP "sudo service zabbix-server stop"
+ssh -o StrictHostKeyChecking=no ubuntu@$VM_IP "mysql -uroot -pubuntu zabbix < zabbix/zabbix_full.sql"                           
+ssh -o StrictHostKeyChecking=no ubuntu@$VM_IP "sudo service zabbix-server start"
+
+
+#copy over SSH keys
+scp -o StrictHostKeyChecking=no ~/.ssh/id_rsa* ubuntu@$VM_IP:
+
+echo "Got to http://$VM_IP/zabbix "
+echo "login admin / ubuntu"
+exit
+
+#See here:https://kashyapc.fedorapeople.org/virt/snapshots-notes/snapshots-with-virsh-for-qcow2.txt for snapshot
