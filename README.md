@@ -4,12 +4,17 @@
 
 Works on Amazon EC2 and OpenStack 
 
+Download this project:
+
+    git clone https://github.com/thomnico/juju-nfv-demo.git
+
 Once you juju environment is up (suggesting juju-quickstart):
-./00-prepare.sh
+
+    ./00-prepare.sh
 
 If you have a dns domain of your own you can change the first 2 lines of bundle-nfv-demo.yaml in the override section.
 
-./01-deploy.sh
+    ./01-deploy.sh
 
 
 ## Using the deployment:
