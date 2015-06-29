@@ -8,7 +8,7 @@ Download this project:
 
     git clone https://github.com/thomnico/juju-nfv-demo.git
 
-Once you juju environment is up (suggesting juju-quickstart):
+Once you juju environment is up (suggesting juju-quickstart https://launchpad.net/juju-quickstart ):
 
     ./00-prepare.sh
 
