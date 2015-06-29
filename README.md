@@ -48,3 +48,8 @@ Run:  BulkUsersCreation.sh
 Once started and if you create a zabbix machine run:
  
 integrate-with-ext-zabbix <IP of the zabbix machine>
+
+### Clean enviroment  
+When you done, you can clean ennviroment and destroy all services (do not terminate machines). 
+
+    juju-deployer -D 
