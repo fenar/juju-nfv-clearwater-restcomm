@@ -40,6 +40,10 @@ Use restcomm using the login at:
 Show the designer: 
 http://www.restcomm.com/developers/
 
+## Deploy and connect to juju GUI
+
+    juju quickstart 
+
 ## bulk user creation
 Run:  BulkUsersCreation.sh 
 
