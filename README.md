@@ -15,7 +15,7 @@ Download this project:
 
     git clone https://github.com/thomnico/juju-nfv-demo.git
 
-Once you juju environment is up (suggesting juju-quickstart):
+Once you juju environment is up (suggesting juju-quickstart https://launchpad.net/juju-quickstart ):
 
     ./00-prepare.sh
 
@@ -47,6 +47,10 @@ Use restcomm using the login at:
 Show the designer: 
 http://www.restcomm.com/developers/
 
+## Deploy and connect to juju GUI
+
+    juju quickstart 
+
 ## bulk user creation
 Run:  BulkUsersCreation.sh 
 
@@ -55,3 +59,8 @@ Run:  BulkUsersCreation.sh
 Once started and if you create a zabbix machine run:
  
 integrate-with-ext-zabbix <IP of the zabbix machine>
+
+### Clean enviroment  
+When you done, you can clean ennviroment and destroy all services (do not terminate machines). 
+
+    juju-deployer -D 
