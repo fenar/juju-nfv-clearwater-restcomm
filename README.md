@@ -49,13 +49,14 @@ http://www.restcomm.com/developers/
 
 ## Deploy and connect to juju GUI
 
-    juju quickstart 
+    juju-quickstart 
 
 ## bulk user creation
 Run:  BulkUsersCreation.sh 
 
-## Link to your orchestrator of choice.
- 
+## Example of orchestrating your model with zabbix
+
+  
 Once started and if you create a zabbix machine run:
  
 integrate-with-ext-zabbix <IP of the zabbix machine>

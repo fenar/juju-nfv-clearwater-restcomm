@@ -11,4 +11,5 @@ set -e
 [ -d clearwater-juju/charms ] || (echo "please follow instruction in README"; exit 2)
 export JUJU_REPOSITORY=$PWD/clearwater-juju/charms 
 
+#if in need for more power#juju set-constraints 'instance-type=m3.medium'
 juju-deployer -c bundle-nfv-demo.yaml -c bundle-config.yaml
