@@ -51,15 +51,33 @@ http://www.restcomm.com/developers/
 
     juju-quickstart 
 
-## bulk user creation
-Run:  BulkUsersCreation.sh 
-
 ## Example of orchestrating your model with zabbix
 
+### Create a extrnal to juju Zabbix.
+
+You do need a machine external to Juju to show the true integration.
+You must open the following port 80 (interface), 10050 et 10051 (zabbix)
+
+Create a security group if on AWS or OpenStack to ensure you can connect to and be sure you can access that machine/vm.
+
+Then simply do:
+./install-on-machine 54.164.161.172
+Use your IP of course.
+
+If blocked with a "Cleaning" msg .. kill and restart (it should be idempotent)
+
+Then http://54.164.161.172/zabbix/ 
+login admin / ubuntu
+
+# connect your JUJU env and agents.
   
 Once started and if you create a zabbix machine run:
  
 integrate-with-ext-zabbix <IP of the zabbix machine>
+
+
+## bulk user creation
+Run:  BulkUsersCreation.sh 
 
 ### Clean enviroment  
 When you done, you can clean ennviroment and destroy all services (do not terminate machines). 
