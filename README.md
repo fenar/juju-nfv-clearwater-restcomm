@@ -13,7 +13,7 @@ Works on Amazon EC2 and OpenStack
 
 Download this project:
 
-    git clone https://github.com/thomnico/juju-nfv-demo.git
+    git clone https://github.com/thomnico/juju-nfv-clearwater-restcomm.git
 
 Once you juju environment is up (suggesting juju-quickstart https://launchpad.net/juju-quickstart ):
 
