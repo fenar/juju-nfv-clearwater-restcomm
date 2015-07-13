@@ -30,19 +30,18 @@ For the familiar with IMS word here is the ClearWater architecture:
 -![alt text](http://www.projectclearwater.org/wp-content/uploads/2013/05/project-clearwater-architecture-april-2014-2.png "Clearwater architecture")
 
 
-Use clearwater by using the login at:
+Use clearwater by using: 
 
-* http://ellis-IP/
+* the login at: http://ellis-IP/
 * Go to signup page:
-* e-mail/name: your choice.
-* signup code : abracadabra
-* password suggestion: AAbbCCdd
+    * e-mail/name: your choice.
+    * signup code : `abracadabra`
+    * password suggestion: `AAbbCCdd`
 
 
-Use restcomm using the login at:
-*http://restcomm-IP:8080/restcomm-management
-*email: administrator@company.com
-*pass: RestComm
+Use restcomm using the login at: `http://restcomm-IP:8080/restcomm-management`
+* email: `administrator@company.com`
+* pass: `RestComm`
 
 Show the designer: 
 http://www.restcomm.com/developers/
@@ -69,15 +68,15 @@ If blocked with a "Cleaning" msg .. kill and restart (it should be idempotent)
 Then http://54.164.161.172/zabbix/ 
 login admin / ubuntu
 
-# connect your JUJU env and agents.
+# Connect your Juju environment and agents
   
 Once started and if you create a zabbix machine run:
  
-integrate-with-ext-zabbix <IP of the zabbix machine>
+`integrate-with-ext-zabbix <IP of the zabbix machine>`
 
 
 ## bulk user creation
-Run:  BulkUsersCreation.sh 
+Run:  `BulkUsersCreation.sh` 
 
 ### Clean enviroment  
 When you done, you can clean ennviroment and destroy all services (do not terminate machines). 
