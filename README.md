@@ -50,35 +50,39 @@ http://www.restcomm.com/developers/
 
     juju-quickstart 
 
-## Example of orchestrating your model with zabbix
+## Example of VNF model orchestration using Zabbix
 
-### Create a extrnal to juju Zabbix.
+In order to show real deployment and orchestration use case we need external machine (to current Juju environment) to deploy orchestration service. 
+In this example we will use Zabbix server. [to do describe deployment of zabbix] 
 
-You do need a machine external to Juju to show the true integration.
-You must open the following port 80 (interface), 10050 et 10051 (zabbix)
+Follow the steps: 
 
-Create a security group if on AWS or OpenStack to ensure you can connect to and be sure you can access that machine/vm.
+### Connect external Zabbix server
 
-Then simply do:
-./install-on-machine 54.164.161.172
-Use your IP of course.
+* You must open the following port 80 (interface), 10050 et 10051 (zabbix)
+
+* Create a security group if on AWS or OpenStack to ensure you can connect to and be sure you can access that machine/vm.
+
+* Then simply do (of course use your IP):
+
+  `./install-on-machine 54.164.161.172`
 
 If blocked with a "Cleaning" msg .. kill and restart (it should be idempotent)
 
-Then http://54.164.161.172/zabbix/ 
+* Then  `http://54.164.161.172/zabbix/` 
 login admin / ubuntu
 
-# Connect your Juju environment and agents
+### Connect your Juju environment and agents
   
-Once started and if you create a zabbix machine run:
+Once started and if you create a Zabbix machine run:
  
 `integrate-with-ext-zabbix <IP of the zabbix machine>`
 
 
-## bulk user creation
+### Bulk user creation
 Run:  `BulkUsersCreation.sh` 
 
-### Clean enviroment  
+## Clean enviroment  
 When you done, you can clean ennviroment and destroy all services (do not terminate machines). 
 
     juju-deployer -D 
