@@ -70,6 +70,17 @@ Once started and if you create a Zabbix machine run:
 ### Bulk user creation
 Run:  `BulkUsersCreation.sh` 
 
+
+### Wanna test autoscaling?
+
+Enjoy your nodes automagically enrolled in Zabbix.
+
+    juju ssh clearwater-bono/0
+    sudo apt-get install -y -qq stress
+    stress --cpu 1 --io 2 --vm 2 --vm-bytes 512M --timeout 600
+
+
+
 ## Clean enviroment  
 When you are done, you can clean enviroment and destroy all services (do not terminate machines). 
 
