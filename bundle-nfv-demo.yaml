@@ -75,37 +75,34 @@ nfv-demo:
       annotations:
         "gui-x": "1000"
         "gui-y": "450"
-    "telscale-load-balancer": 
-      charm: "cs:~thomnico/trusty/telscale-load-balancer"
-      num_units: 1
-      expose: true
-      annotations: 
-        "gui-x": "-200"
-        "gui-y": "300"
-    "telscale-restcomm": 
-      charm: "cs:~thomnico/trusty/telscale-restcomm"
+#    "mobicents-load-balancer": 
+#      charm: "cs:~jean-deruelle/trusty/mobicents-load-balancer"
+#      num_units: 1
+#      expose: true
+#      annotations: 
+#        "gui-x": "-200"
+#        "gui-y": "300"
+    "mobicents-restcomm": 
+      charm: "cs:~jean-deruelle/trusty/mobicents-restcomm-charm"
       num_units: 1
       expose: true
       annotations: 
         "gui-x": "-300"
         "gui-y": "450"
     mysql: 
-      charm: "cs:precise/mysql"
+      charm: "cs:trusty/mysql"
       num_units: 1
-      expose: true
+      options:
+        dataset-size: 512M
       annotations: 
         "gui-x": "-300"
         "gui-y": "150"
   relations: 
-    - - "telscale-restcomm:load-balancer"
-      - "telscale-load-balancer:load-balancer"
     - - "mysql:db"
-      - "telscale-restcomm:database"
-    - - "telscale-restcomm:clearwater-ellis"
+      - "mobicents-restcomm:database"
+    - - "mobicents-restcomm:clearwater-ellis"
       - "clearwater-ellis:as-catalog"
-    - - "telscale-load-balancer:clearwater-ellis"
-      - "clearwater-ellis:as-catalog"
-    - - "telscale-restcomm:cscf"
+    - - "mobicents-restcomm:cscf"
       - "clearwater-sprout:as"
     - - "clearwater-homestead:programmable-multiple"
       - "dns:programmable-multiple"
