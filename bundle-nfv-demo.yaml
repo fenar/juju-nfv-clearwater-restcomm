@@ -65,6 +65,16 @@ nfv-demo:
       annotations:
         "gui-x": "400"
         "gui-y": "0"
+    "clearwater-sipp":
+      charm: "local:precise/clearwater-sipp"
+      charm_url: "local:precise/clearwater-sipp"
+      num_units: 1
+      constraints: "arch=amd64"
+      options:
+        zone: "clearwater.local"
+      annotations:
+        "gui-x": "400"
+        "gui-y": "1200"
     dns:
       charm: "local:trusty/dns"
       charm_url: "local:trusty/dns"
@@ -118,6 +128,8 @@ nfv-demo:
     - - "clearwater-homer:programmable-multiple"
       - "dns:programmable-multiple"
     - - "clearwater-ellis:programmable-multiple"
+      - "dns:programmable-multiple"
+    - - "clearwater-sipp:programmable-multiple"
       - "dns:programmable-multiple"
     - - "clearwater-bono:cscf"
       - "clearwater-sprout:pcscf"
