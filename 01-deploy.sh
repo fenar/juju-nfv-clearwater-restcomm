@@ -12,4 +12,4 @@ set -e
 export JUJU_REPOSITORY=$PWD/clearwater-juju/charms 
 
 #if in need for more power#juju set-constraints 'instance-type=m3.medium'
-juju-deployer -c bundle-nfv-demo.yaml -c bundle-config.yaml
+juju-deployer -r 2 -c bundle-nfv-demo.yaml -c bundle-config.yaml
