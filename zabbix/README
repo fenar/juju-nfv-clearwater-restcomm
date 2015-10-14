@@ -17,3 +17,5 @@ Then http://54.164.161.172/zabbix/
 login admin / ubuntu
 
 # connect your JUJU env and agents.
+
+# This is an automation of the work done here https://github.com/SaMnCo/ob-zabbix
