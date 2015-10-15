@@ -53,7 +53,8 @@ $SSH "sudo chmod 644  /usr/lib/zabbix/externalscripts/.jujuapi.yaml"
 juju deploy  cs:~samuel-cozannet/precise/zabbix-agent || echo "already deployed keep going"
 juju set zabbix-agent server-host=$VM_IP
 
-juju add-relation clearwater-ellis zabbix-agent || echo "already related to ellis keep going"
+juju add-relation clearwater-ellis zabbix-agent || echo "Already related to Ellis, keep going"
+juju add-relation clearwater-sprout zabbix-agent || echo "Already related to Sprout, keep going"
 
-echo "You can now connect Got to th gui and connect clearwater services to zabbix-agent"
+echo "Sprout and Ellis are now connected to Zabbix. You can connect other services by creating a relation with zabbix-agent, either through the GUI or the command line."
 
