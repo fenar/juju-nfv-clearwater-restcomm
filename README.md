@@ -47,7 +47,9 @@ Follow the steps:
 
 ### Connect external Zabbix server
 
-* You must open the following port 80 (interface), 10050 et 10051 (zabbix)
+* You must open the following ports:
+    * 80 (HTTP)
+    * 10050-10051 (Zabbix)
 
 * Create a security group if on AWS or OpenStack to ensure you can connect to and be sure you can access that machine/vm.
 
@@ -66,22 +68,25 @@ Once started and if you create a Zabbix machine run:
  
 `integrate-with-ext-zabbix <IP of the zabbix machine>`
 
-
-### Bulk user creation
-Run:  `BulkUsersCreation.sh` 
-
-
 ### Wanna test autoscaling?
 
-Enjoy your nodes automagically enrolled in Zabbix.
+This project includes the ability to generate simulated load against the system - the equivalent of
+40,000 subscribers making two calls an hour.
 
-    juju ssh clearwater-bono/0
-    sudo apt-get install -y -qq stress
-    stress --cpu 1 --io 2 --vm 2 --vm-bytes 512M --timeout 600
+To do this:
 
+* provision the 40,000 subscribers by running ./StressTestUserCreation.sh
+* create a relation between clearwater-bono and clearwater-sipp
 
+After about 8 minutes, CPU load average on Sprout will rise high enough for Zabbix to trigger a
+scale-up - you should be able to see this both on the graphs in Zabbix, and as a second node in the
+Juju GUI.
 
 ## Clean enviroment  
-When you are done, you can clean enviroment and destroy all services (do not terminate machines). 
+When you are done, you can clean the enviroment by running:
 
-    juju-deployer -D 
+    ./02-reset.sh
+
+This removes all the Clearwater services, but keeps the Juju GUI in place. (It also doesn't destroy
+the external Zabbix, so you only need to run `integrate-with-ext-zabbix <IP of the zabbix machine>`
+on future runs).

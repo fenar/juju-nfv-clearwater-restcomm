@@ -60,6 +60,15 @@ nfv-demo:
         number_count: 1000
         # Ellis allows self-sign-up - anyone who has this signup key can create a user account and multiple lines, so it should be kept secure.
         signup_key: "abracadabra"
+    "clearwater-sipp":
+      options:
+        # Deployment-wide options
+        # These options should be set to the same value for all Clearwater charms
+        zone: "ims.clearwater.local"
+        repo: "http://repo.cw-ngv.com/juju-clearwater-1"
+
+        # SIPp-specific options
+        user_count: 40000
     dns:
       options:
         # The dns 'domain' option should match the Clearwater 'zone' option
