@@ -1,7 +1,7 @@
 nfv-demo:
   overrides:
-    zone: "ims.nfv.ovh"
-    domain: "ims.nfv.ovh"
+    zone: "clearwater.local"
+    domain: "clearwater.local"
   services:
     "clearwater-bono":
       options:
