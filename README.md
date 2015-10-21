@@ -20,14 +20,14 @@ For the familiar with IMS world here is the Clearwater architecture:
 
 Use Clearwater by using: 
 
-* the login at: http://ellis-IP/ (use `juju 
+* the login at: http://ellis-IP/ (use `juju GUI to find elli-IP)
 * Go to signup page:
     * e-mail/name: your choice.
     * signup code : `abracadabra`
     * password suggestion: `AAbbCCdd`
 
 
-Use Restcomm using the login at: `http://restcomm-IP:8080/restcomm-management`
+Use Restcomm using the login at: `http://restcomm-IP:8080`
 * email: `administrator@company.com`
 * pass: `RestComm`
 
