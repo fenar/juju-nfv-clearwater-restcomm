@@ -68,7 +68,7 @@ nfv-demo:
         repo: "http://repo.cw-ngv.com/juju-clearwater-1"
 
         # SIPp-specific options
-        user_count: 40000
+        # user_count: 40000
     dns:
       options:
         # The dns 'domain' option should match the Clearwater 'zone' option
