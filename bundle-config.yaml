@@ -66,9 +66,6 @@ nfv-demo:
         # These options should be set to the same value for all Clearwater charms
         zone: "ims.clearwater.local"
         repo: "http://repo.cw-ngv.com/juju-clearwater-1"
-
-        # SIPp-specific options
-        user_count: 40000
     dns:
       options:
         # The dns 'domain' option should match the Clearwater 'zone' option
