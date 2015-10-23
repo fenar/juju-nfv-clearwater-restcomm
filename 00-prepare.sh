@@ -4,7 +4,7 @@ set -e
 echo "Getting the code from Clearwater project until direct from git deploy is possible"
 UP=$PWD
 [  -d clearwater-juju ]  && (cd clearwater-juju; git pull)
-[  -d clearwater-juju ]  || git clone -b dnsaas https://github.com/thomnico/clearwater-juju-thomnico.git clearwater-juju
+[  -d clearwater-juju ]  || git clone -b dns_json https://github.com/thomnico/clearwater-juju-thomnico.git clearwater-juju
 cd $UP
 # Temporary until merge in upstream
 [ -d clearwater-juju/charms/trusty/dns ] && (cd clearwater-juju/charms/trusty/dns; git pull)
