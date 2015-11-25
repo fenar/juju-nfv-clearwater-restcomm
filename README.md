@@ -20,7 +20,7 @@ For the familiar with IMS world here is the Clearwater architecture:
 
 Use Clearwater by using: 
 
-* the login at: http://ellis-IP/ (use `juju 
+* the login at: http://ellis-IP/ (use `juju status clearwater-ellis` or the GUI)
 * Go to signup page:
     * e-mail/name: your choice.
     * signup code : `abracadabra`
