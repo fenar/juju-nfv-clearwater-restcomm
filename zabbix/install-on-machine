@@ -41,7 +41,7 @@ ssh -o StrictHostKeyChecking=no ubuntu@$VM_IP "sudo service zabbix-server start"
 
 
 #copy over SSH keys
-scp -o StrictHostKeyChecking=no ~/.ssh/id_rsa* ubuntu@$VM_IP:
+#scp -o StrictHostKeyChecking=no ~/.ssh/id_rsa* ubuntu@$VM_IP:
 
 echo "Got to http://$VM_IP/zabbix "
 echo "login admin / ubuntu"
