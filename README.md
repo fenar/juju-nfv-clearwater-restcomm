@@ -10,7 +10,7 @@ Works on Amazon EC2 and OpenStack
 
 - Download this project: `git clone https://github.com/thomnico/juju-nfv-clearwater-restcomm.git`
 - Create a Juju environment (we suggest using [juju-quickstart](https://launchpad.net/juju-quickstart))
-- If you have a DNS domain of your own, you can change the first 2 lines of bundle-nfv-demo.yaml (in the override section).
+- If you have a DNS domain of your own, you can change the first 2 lines of bundle-config.yaml (in the override section).
 - Run `./00-prepare.sh` and `./01-deploy.sh`
 
 ## Using the deployment:
