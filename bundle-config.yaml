@@ -2,13 +2,14 @@ nfv-demo:
   overrides:
     zone: "clearwater.local"
     domain: "clearwater.local"
+    repo: "http://repo.cw-ngv.com/release-89"
   services:
     "clearwater-bono":
       options:
         # Deployment-wide options
         # These options should be set to the same value for all Clearwater charms
         zone: "ims.clearwater.local"
-        repo: "http://repo.cw-ngv.com/juju-clearwater-1"
+        repo: "http://repo.cw-ngv.com/stable"
         sas: "0.0.0.0"
 
         # Bono-specific options
@@ -19,7 +20,7 @@ nfv-demo:
         # Deployment-wide options
         # These options should be set to the same value for all Clearwater charms
         zone: "ims.clearwater.local"
-        repo: "http://repo.cw-ngv.com/juju-clearwater-1"
+        repo: "http://repo.cw-ngv.com/stable"
         sas: "0.0.0.0"
 
         # Sprout-specific options
@@ -32,27 +33,27 @@ nfv-demo:
         # Deployment-wide options
         # These options should be set to the same value for all Clearwater charms
         zone: "ims.clearwater.local"
-        repo: "http://repo.cw-ngv.com/juju-clearwater-1"
+        repo: "http://repo.cw-ngv.com/stable"
         sas: "0.0.0.0"
     "clearwater-homestead":
       options:
         # Deployment-wide options
         # These options should be set to the same value for all Clearwater charms
         zone: "ims.clearwater.local"
-        repo: "http://repo.cw-ngv.com/juju-clearwater-1"
+        repo: "http://repo.cw-ngv.com/stable"
         sas: "0.0.0.0"
     "clearwater-homer":
       options:
         # Deployment-wide options
         # These options should be set to the same value for all Clearwater charms
         zone: "ims.clearwater.local"
-        repo: "http://repo.cw-ngv.com/juju-clearwater-1"
+        repo: "http://repo.cw-ngv.com/stable"
     "clearwater-ellis":
       options:
         # Deployment-wide options
         # These options should be set to the same value for all Clearwater charms
         zone: "ims.clearwater.local"
-        repo: "http://repo.cw-ngv.com/juju-clearwater-1"
+        repo: "http://repo.cw-ngv.com/stable"
 
         # Ellis-specific options
         # Ellis' role is to allocate numbers to users, out of a preconfigured pool. The base_number and number_count settings define that pool - for example, with these values, Ellis could allocate sip:1234567000@ims.clearwater.local to sip:1234567999@ims.clearwater.local.
@@ -65,7 +66,7 @@ nfv-demo:
         # Deployment-wide options
         # These options should be set to the same value for all Clearwater charms
         zone: "ims.clearwater.local"
-        repo: "http://repo.cw-ngv.com/juju-clearwater-1"
+        repo: "http://repo.cw-ngv.com/stable"
     dns:
       options:
         # The dns 'domain' option should match the Clearwater 'zone' option

@@ -1,8 +1,8 @@
 nfv-demo:
   services:
     "clearwater-bono":
-      charm: "local:precise/clearwater-bono"
-      charm_url: "local:precise/clearwater-bono"
+      charm: "local:trusty/clearwater-bono"
+      charm_url: "local:trusty/clearwater-bono"
       num_units: 1
       constraints: "arch=amd64"
       options:
@@ -12,8 +12,8 @@ nfv-demo:
         "gui-x": "400"
         "gui-y": "900"
     "clearwater-sprout":
-      charm: "local:precise/clearwater-sprout"
-      charm_url: "local:precise/clearwater-sprout"
+      charm: "local:trusty/clearwater-sprout"
+      charm_url: "local:trusty/clearwater-sprout"
       num_units: 1
       constraints: "arch=amd64"
       options:
@@ -22,8 +22,8 @@ nfv-demo:
         "gui-x": "400"
         "gui-y": "600"
     "clearwater-ralf":
-      charm: "local:precise/clearwater-ralf"
-      charm_url: "local:precise/clearwater-ralf"
+      charm: "local:trusty/clearwater-ralf"
+      charm_url: "local:trusty/clearwater-ralf"
       num_units: 1
       constraints: "arch=amd64"
       options:
@@ -32,8 +32,8 @@ nfv-demo:
         "gui-x": "800"
         "gui-y": "750"
     "clearwater-homestead":
-      charm: "local:precise/clearwater-homestead"
-      charm_url: "local:precise/clearwater-homestead"
+      charm: "local:trusty/clearwater-homestead"
+      charm_url: "local:trusty/clearwater-homestead"
       num_units: 1
       constraints: "arch=amd64 root-disk=50G cpu-cores=4"
       options:
@@ -42,8 +42,8 @@ nfv-demo:
         "gui-x": "200"
         "gui-y": "300"
     "clearwater-homer":
-      charm: "local:precise/clearwater-homer"
-      charm_url: "local:precise/clearwater-homer"
+      charm: "local:trusty/clearwater-homer"
+      charm_url: "local:trusty/clearwater-homer"
       num_units: 1
       constraints: "arch=amd64 root-disk=50G cpu-cores=4"
       options:
@@ -52,8 +52,8 @@ nfv-demo:
         "gui-x": "600"
         "gui-y": "300"
     "clearwater-ellis":
-      charm: "local:precise/clearwater-ellis"
-      charm_url: "local:precise/clearwater-ellis"
+      charm: "local:trusty/clearwater-ellis"
+      charm_url: "local:trusty/clearwater-ellis"
       num_units: 1
       constraints: "arch=amd64"
       options:
@@ -66,8 +66,8 @@ nfv-demo:
         "gui-x": "400"
         "gui-y": "0"
     "clearwater-sipp":
-      charm: "local:precise/clearwater-sipp"
-      charm_url: "local:precise/clearwater-sipp"
+      charm: "local:trusty/clearwater-sipp"
+      charm_url: "local:trusty/clearwater-sipp"
       num_units: 1
       constraints: "arch=amd64"
       options:
@@ -144,4 +144,4 @@ nfv-demo:
       - "clearwater-homestead:homestead-prov-user"
     - - "clearwater-ellis:xdms"
       - "clearwater-homer:xdms-user"
-  series: precise
+  series: trusty
