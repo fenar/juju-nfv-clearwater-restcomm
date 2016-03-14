@@ -4,10 +4,8 @@
 
 juju ssh clearwater-homestead/0 '. /etc/clearwater/config; for DN in {0000..0099} ; do echo sip:$DN@$home_domain,$DN@$home_domain,$home_domain,7kkzTyGW ; done > users.csv'
 
-#juju ssh clearwater-homestead/0 "/usr/share/clearwater/homestead/src/metaswitch/crest/tools/bulk_autocomplete.py users.csv"
-#juju ssh clearwater-homestead/0 "/usr/share/clearwater/homestead/src/metaswitch/crest/tools/bulk_create.py users.auto.csv"
-juju ssh clearwater-homestead/0 "/usr/share/clearwater/crest/src/metaswitch/crest/tools/bulk_autocomplete.py users.csv"
-juju ssh clearwater-homestead/0 "/usr/share/clearwater/crest/src/metaswitch/crest/tools/bulk_autocomplete.py users.auto.csv"
+juju ssh clearwater-homestead/0 "/usr/share/clearwater/homestead/src/metaswitch/crest/tools/bulk_autocomplete.py users.csv"
+juju ssh clearwater-homestead/0 "/usr/share/clearwater/homestead/src/metaswitch/crest/tools/bulk_create.py users.auto.csv"
 
 juju ssh clearwater-homestead/0 "./users.auto.create_homestead.sh"
 
