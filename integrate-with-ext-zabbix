@@ -50,8 +50,9 @@ $SSH "sudo chmod 644  /usr/lib/zabbix/externalscripts/.jujuapi.yaml"
 
 ##usr/lib/zabbix/externalscripts/.jujuapi.yaml "
 
-#juju deploy  cs:~samuel-cozannet/precise/zabbix-agent || echo "already deployed keep going"
-juju deploy  cs:~thomnico/precise/zabbix-agent || echo "already deployed keep going"
+juju deploy  cs:~samuel-cozannet/trusty/zabbix-agent  zabbix-agent || echo "already deployed keep going"
+juju run --service zabbix-agent "mkdir -p /etc/zabbix/zabbix_agentd.d/"
+#juju deploy  cs:~thomnico/trusty/zabbix-agent zabbix-agent || echo "already deployed keep going"
 
 [ -d clearwater-juju/charms ] || (echo "please follow instruction in README"; exit 2)
 export JUJU_REPOSITORY=$PWD/clearwater-juju/charms 
